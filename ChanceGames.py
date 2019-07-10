@@ -20,12 +20,19 @@ def roll(guess, bet):
     global money
     dice1 = random.randint(1,6)
     dice2 = random.randint(1,6)
-    if (dice1+dice2)%2 == 0 and (guess == 'even' or guess == 'odd'):
-        money += bet
-        return "You won $" + str(bet)
-    elif (dice1+dice2)%2 != 0 and (guess == 'even' or guess == 'odd'):
-        money -= bet
-        return "You lost $" + str(bet)
+    if money > 0:
+        if guess == "even" or guess == "odd":
+            if guess == "even" and (dice1 + dice2)%2 == 0:
+                money += bet
+                return "You won $" + str(bet)
+            elif guess == "odd" and (dice1 + dice2)%2 != 0:
+                money += bet
+                return "You won $" + str(bet)
+            else:
+                money -= bet
+                return "You lose " + str(bet)
+        else:
+            return "Type in even or odd"
     else:
         return "you poor"
 
