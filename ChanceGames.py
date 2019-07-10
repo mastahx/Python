@@ -3,17 +3,24 @@ import random
 money = 100
 
 #----------------------------------[         coin flip bet       ]----------------------------------
-def flip_coin(guess, bet):
+def flip(guess, bet):
     global money
-    coinside = random.randint(1,2)
-    if coinside == 1 and (guess == 'tails' or guess == 'heads'):
-        money += bet
-        return "You won $" + str(bet)
-    elif coinside != 1 and (guess == 'tails' or guess == 'heads'):
-        money -= bet
-        return "You lost $" + str(bet)
+    coin = random.randint(1,2)
+    if money > 0:
+        if guess == "heads" or guess == "tails":
+            if guess == "heads" and coin == 1:
+                money += bet
+                return "You won $" + str(bet)
+            elif guess == "tails" and coin == 2:
+                money += bet
+                return "You won $" + str(bet)
+            else:
+                money -= bet
+                return "You lose " + str(bet)
+        else:
+            return "Type in even or odd"
     else:
-        return "Type in heads or tails"
+        return "you poor"
 
 #----------------------------------[         cho-han bet       ]----------------------------------
 def roll(guess, bet):
@@ -36,7 +43,8 @@ def roll(guess, bet):
     else:
         return "you poor"
 
+#----------------------------------[         pick card       ]----------------------------------
 
-
-
-print(roll("even", 50))
+# while money > 0:
+#     print(money)
+#     print(flip("heads", 50))
