@@ -16,7 +16,7 @@ def flip_coin(guess, bet):
         return "Type in heads or tails"
 
 #----------------------------------[         cho-han bet       ]----------------------------------
-def roll_die(guess, bet):
+def roll(guess, bet):
     global money
     dice1 = random.randint(1,6)
     dice2 = random.randint(1,6)
@@ -27,4 +27,9 @@ def roll_die(guess, bet):
         money -= bet
         return "You lost $" + str(bet)
     else:
-        return "Type in even or odd"
+        return "you poor"
+
+
+
+
+print(roll("even", 50))
