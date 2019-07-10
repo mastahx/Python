@@ -18,7 +18,7 @@ def flip(guess, bet):
                 money -= bet
                 return "You lose " + str(bet)
         else:
-            return "Type in even or odd"
+            return "Type in heads or tails"
     else:
         return "you poor"
 
